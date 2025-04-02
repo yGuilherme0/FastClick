@@ -186,11 +186,29 @@ nav {
 }
 
 .hero h1 {
-    font-size: 4rem;
+    font-size: 3.5rem;
     margin-bottom: 1.5rem;
+    color: #FFD700;
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
     animation: fadeInUp 1s ease;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-    line-height: 1.2;
+    background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+    z-index: 1;
+}
+
+.hero h1::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, #FFD700, #FFA500);
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
 }
 
 .hero p {
@@ -199,7 +217,8 @@ nav {
     animation: fadeInUp 1s ease 0.2s;
     opacity: 0;
     animation-fill-mode: forwards;
-    color: rgba(255, 255, 255, 0.9);
+    color: #FFD700;
+    
 }
 
 .cta-button {
