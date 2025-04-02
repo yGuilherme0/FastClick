@@ -84,16 +84,27 @@ nav {
     margin: 0 auto;
 }
 
-.logo img {
+.logo {
+    position: relative;
     height: 70px;
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 130px;
     transition: transform 0.3s ease;
     filter: drop-shadow(0 0 10px rgba(0, 191, 255, 0.3));
     transform-style: preserve-3d;
     transform: perspective(1000px) translateZ(0);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .logo img:hover {
-    transform: perspective(1000px) translateZ(20px) scale(1.05);
+    transform: translate(-50%, -50%) perspective(1000px) translateZ(20px) scale(1.05);
     filter: drop-shadow(0 0 15px rgba(0, 191, 255, 0.5));
 }
 
@@ -295,7 +306,8 @@ nav {
     transform: translateX(-50%);
     width: 80px;
     height: 3px;
-    background: var(--accent-color);
+    background: linear-gradient(90deg, #FFD700, #FFA500);
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
 }
 
 .services-grid {
@@ -342,10 +354,11 @@ nav {
 }
 
 .service-card i {
-    font-size: 3rem;
+    font-size: 3.5rem;
     color: var(--accent-color);
     margin-bottom: 1.5rem;
     transition: all 0.3s ease;
+    transform: translateZ(0);
 }
 
 .service-card:hover i {
@@ -436,7 +449,8 @@ nav {
     transform: translateX(-50%);
     width: 80px;
     height: 3px;
-    background: var(--accent-color);
+    background: linear-gradient(90deg, #FFD700, #FFA500);
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
 }
 
 .about-content {
@@ -577,7 +591,8 @@ nav {
     transform: translateX(-50%);
     width: 80px;
     height: 3px;
-    background: var(--accent-color);
+    background: linear-gradient(90deg, #FFD700, #FFA500);
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
 }
 
 .contact-content {
