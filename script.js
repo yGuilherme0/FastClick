@@ -64,8 +64,10 @@ function updateStats() {
 
 // Função para criar depoimentos
 function createTestimonials() {
-    const testimonialsContainer = document.createElement('div');
-    testimonialsContainer.className = 'testimonials-container';
+    const testimonialsContainer = document.querySelector('.testimonials-container');
+    if (!testimonialsContainer) return;
+    
+    testimonialsContainer.innerHTML = ''; // Limpa o container antes de adicionar os depoimentos
     
     companyData.testimonials.forEach(testimonial => {
         const testimonialCard = document.createElement('div');
@@ -82,8 +84,6 @@ function createTestimonials() {
         `;
         testimonialsContainer.appendChild(testimonialCard);
     });
-    
-    return testimonialsContainer;
 }
 
 // Função para manipular o formulário de contato
@@ -155,35 +155,31 @@ function animateOnScroll() {
     });
 }
 
-// Função para observar a seção de estatísticas
-function observeStatsSection() {
-    const statsSection = document.querySelector('.about-stats');
-    if (!statsSection) return;
+// Função para observar a seção de estatísticas e depoimentos
+function observeAboutSection() {
+    const aboutSection = document.querySelector('.about');
+    if (!aboutSection) return;
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 // Inicia a animação dos contadores quando a seção estiver visível
                 updateStats();
-                // Desconecta o observer após iniciar a animação
+                // Cria os depoimentos
+                createTestimonials();
+                // Desconecta o observer após iniciar as animações
                 observer.disconnect();
             }
         });
     }, {
-        threshold: 0.5 // A animação começará quando 50% da seção estiver visível
+        threshold: 0.3 // A animação começará quando 30% da seção estiver visível
     });
 
-    observer.observe(statsSection);
+    observer.observe(aboutSection);
 }
 
 // Inicialização
 document.addEventListener('DOMContentLoaded', () => {
-    // Adicionar depoimentos
-    const aboutSection = document.querySelector('.about-content');
-    if (aboutSection) {
-        aboutSection.appendChild(createTestimonials());
-    }
-    
     // Configurar formulário de contato
     handleContactForm();
     
@@ -193,6 +189,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Configurar animações ao rolar
     animateOnScroll();
     
-    // Configurar observador da seção de estatísticas
-    observeStatsSection();
+    // Configurar observador da seção Sobre
+    observeAboutSection();
 }); 
