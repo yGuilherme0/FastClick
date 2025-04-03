@@ -1,3 +1,6 @@
+/* Importando a fonte Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
 /* Variables */
 :root {
     --primary-color: #000000;
@@ -8,6 +11,8 @@
     --gradient: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
     --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     --hover-shadow: 0 15px 40px rgba(0, 191, 255, 0.2);
+    --primary-font: 'Poppins', sans-serif;
+    --secondary-font: 'Poppins', sans-serif;
 }
 
 /* Reset and Base Styles */
@@ -37,11 +42,10 @@ header {
     width: 100%;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: none;
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
-    border-bottom: 1px solid rgba(0, 191, 255, 0.1);
 }
 
 header::before {
@@ -73,7 +77,6 @@ header.scrolled {
     background: rgba(0, 0, 0, 0.7);
     padding: 0.5rem 2rem;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
-    border-bottom: 1px solid rgba(0, 191, 255, 0.2);
 }
 
 nav {
@@ -89,17 +92,18 @@ nav {
     height: 70px;
     display: flex;
     align-items: center;
+    margin-right: auto;
 }
 
 .logo img {
-    height: 130px;
+    height: 180px;
     transition: transform 0.3s ease;
     filter: drop-shadow(0 0 10px rgba(0, 191, 255, 0.3));
     transform-style: preserve-3d;
     transform: perspective(1000px) translateZ(0);
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 60%;
+    left: 95%;
     transform: translate(-50%, -50%);
 }
 
@@ -197,10 +201,12 @@ nav {
 }
 
 .hero h1 {
+    font-family: var(--primary-font);
+    font-weight: 700;
     font-size: 3.5rem;
     margin-bottom: 1.5rem;
     color: #FFD700;
-    text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     animation: fadeInUp 1s ease;
     background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
     -webkit-background-clip: text;
@@ -208,6 +214,8 @@ nav {
     -webkit-text-fill-color: transparent;
     position: relative;
     z-index: 1;
+    letter-spacing: -1px;
+    line-height: 1.2;
 }
 
 .hero h1::after {
@@ -223,13 +231,16 @@ nav {
 }
 
 .hero p {
+    font-family: var(--secondary-font);
+    font-weight: 400;
     font-size: 1.4rem;
     margin-bottom: 2.5rem;
     animation: fadeInUp 1s ease 0.2s;
     opacity: 0;
     animation-fill-mode: forwards;
     color: #FFD700;
-    
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    letter-spacing: 0.5px;
 }
 
 .cta-button {
@@ -831,13 +842,14 @@ footer::before {
     transition: all 0.3s ease;
     padding: 0.5rem;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.1);
+    background: transparent;
+    box-shadow: none;
 }
 
 .social-links a:hover {
     color: var(--accent-color);
-    background: rgba(0, 191, 255, 0.1);
-    transform: translateY(-3px);
+    transform: translateY(-2px);
+    text-shadow: 0 0 10px rgba(0, 191, 255, 0.5);
 }
 
 .footer-bottom {

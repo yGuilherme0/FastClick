@@ -1,6 +1,6 @@
 // Dados da empresa
 const companyData = {
-    projectsDelivered: 150,
+    projectsDelivered: '+150',
     satisfiedClients: 98,
     deliveryTime: 72,
     testimonials: [
@@ -172,7 +172,7 @@ function observeAboutSection() {
             }
         });
     }, {
-        threshold: 0.3 // A animação começará quando 30% da seção estiver visível
+        threshold: 0.7 // A animação começará quando 30% da seção estiver visível
     });
 
     observer.observe(aboutSection);
